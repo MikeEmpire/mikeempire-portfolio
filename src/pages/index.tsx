@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import type { HeadFC, PageProps } from "gatsby";
 
 import bgVideo from "../../static/Blur.mp4";
@@ -22,7 +22,8 @@ const IndexPage: React.FC<PageProps> = () => {
   const [showContent, setShowContent] = React.useState(false);
 
   React.useEffect(() => {
-    setTimeout(() => setShowContent(true), 2000); // Show the rest of the content after 2 seconds
+    const timer = setTimeout(() => setShowContent(true), 2000); // Show the rest of the content after 2 seconds
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -30,9 +31,10 @@ const IndexPage: React.FC<PageProps> = () => {
       <AnimatePresence>
         {!showContent ? (
           <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ duration: 1.5 }}
           >
             Welcome To Mike Empire's Portfolio
           </motion.h1>
@@ -40,7 +42,7 @@ const IndexPage: React.FC<PageProps> = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
+            transition={{ delay: 1.5, duration: 1.5 }}
             style={{ position: "absolute", width: "100%", height: "100%" }}
           >
             <video
@@ -102,3 +104,4 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage;
 
 export const Head: HeadFC = () => <title>Home Page</title>;
+
