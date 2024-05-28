@@ -5,8 +5,14 @@ const Contact = (): JSX.Element => {
     <section>
       <form></form>
       <ul>
-        <li>LinkedIn</li>
-        <li>Github</li>
+        <li>
+          <a href="https://www.linkedin.com/in/michael-olie-815a9681/">
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/MikeEmpire">Github</a>
+        </li>
         <li>Email</li>
       </ul>
     </section>
