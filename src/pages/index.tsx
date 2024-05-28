@@ -1,10 +1,16 @@
 import * as React from "react";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { HeadFC, PageProps } from "gatsby";
 
 import bgVideo from "../../static/Blur.mp4";
 
+import Home from "../components/Home";
+
+import capitalize from "../helpers/capitalize";
+
 import "../styles/index.css";
+import Contact from "../components/Contact";
+import Portfolio from "../components/Portfolio";
 
 const pageStyles = {
   color: "#fff",
@@ -14,17 +20,38 @@ const pageStyles = {
   zIndex: -2,
   justifyContent: "center",
   backgroundColor: "#000",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "paralucent, Roboto, sans-serif, serif",
   overflow: "hidden",
 };
 
 const IndexPage: React.FC<PageProps> = () => {
   const [showContent, setShowContent] = React.useState(false);
+  const [selectedTab, setTab] = React.useState<string>("home");
+  const content = (): JSX.Element => {
+    if (selectedTab === "contact") {
+      return <Contact />;
+    }
+    if (selectedTab === "portfolio") {
+      return <Portfolio />;
+    }
+    return <Home />;
+  };
 
   React.useEffect(() => {
     const timer = setTimeout(() => setShowContent(true), 2000); // Show the rest of the content after 2 seconds
     return () => clearTimeout(timer);
   }, []);
+
+  const tabOptions = ["home", "about", "projects", "contact"].map((tab) => {
+    const handleTabClick = (): void => {
+      setTab(tab);
+    };
+    return (
+      <li key={tab} onClick={handleTabClick}>
+        {capitalize(tab)}
+      </li>
+    );
+  });
 
   return (
     <main style={pageStyles}>
@@ -69,6 +96,7 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <h1>Mike Empire</h1>
               <h2>Web Developer</h2>
+              <ul>{tabOptions}</ul>
             </div>
             <div
               style={{
@@ -80,19 +108,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 zIndex: 2,
               }}
             >
-              <p>
-                As a passionate web developer with a keen eye for detail and a
-                robust background in business and graphic design, I thrive on
-                crafting innovative software solutions. Over the years, I have
-                honed my expertise in JavaScript and a variety of modern
-                technologies, enabling me to spearhead complex projects and
-                mentor emerging developers. My experience spans leading tech
-                teams to success at Rare Collectibles TV, co-founding and
-                developing GroLens, and tackling diverse freelance projects.
-                With a dedication to continuous learning and a commitment to
-                excellence, I transform ideas into scalable, efficient, and
-                user-friendly applications.
-              </p>
+              {content()}
             </div>
           </motion.div>
         )}
@@ -104,4 +120,3 @@ const IndexPage: React.FC<PageProps> = () => {
 export default IndexPage;
 
 export const Head: HeadFC = () => <title>Home Page</title>;
-
