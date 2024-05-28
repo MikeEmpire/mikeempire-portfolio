@@ -46,8 +46,14 @@ const IndexPage: React.FC<PageProps> = () => {
     const handleTabClick = (): void => {
       setTab(tab);
     };
+    const isSelected = tab === selectedTab;
+    const className = isSelected ? "active-link" : "";
     return (
-      <li className="cursor-pointer" key={tab} onClick={handleTabClick}>
+      <li
+        className={`${className} cursor-pointer text-3xl mb-2 hover:text-emerald-300 w-2 transition-colors`}
+        key={tab}
+        onClick={handleTabClick}
+      >
         {capitalize(tab)}
       </li>
     );
