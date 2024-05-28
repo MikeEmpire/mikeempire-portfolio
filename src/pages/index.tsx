@@ -2,15 +2,15 @@ import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { HeadFC, PageProps } from "gatsby";
 
-import bgVideo from "../../static/Blur.mp4";
-
 import Home from "../components/Home";
+import Contact from "../components/Contact";
+import Portfolio from "../components/Portfolio";
 
 import capitalize from "../helpers/capitalize";
 
+import bgVideo from "../../static/Blur.mp4";
+
 import "../styles/index.css";
-import Contact from "../components/Contact";
-import Portfolio from "../components/Portfolio";
 
 const pageStyles = {
   color: "#fff",
@@ -42,12 +42,12 @@ const IndexPage: React.FC<PageProps> = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const tabOptions = ["home", "about", "projects", "contact"].map((tab) => {
+  const tabOptions = ["home", "projects", "contact"].map((tab) => {
     const handleTabClick = (): void => {
       setTab(tab);
     };
     return (
-      <li key={tab} onClick={handleTabClick}>
+      <li className="cursor-pointer" key={tab} onClick={handleTabClick}>
         {capitalize(tab)}
       </li>
     );
@@ -58,6 +58,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <AnimatePresence>
         {!showContent ? (
           <motion.h1
+            className="text-4xl"
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
@@ -94,8 +95,10 @@ const IndexPage: React.FC<PageProps> = () => {
                 zIndex: 2,
               }}
             >
-              <h1>Mike Empire</h1>
-              <h2>Web Developer</h2>
+              <section className="mb-8">
+                <h1 className="text-3xl">Mike Empire</h1>
+                <h2>Web Developer</h2>
+              </section>
               <ul>{tabOptions}</ul>
             </div>
             <div
@@ -108,7 +111,17 @@ const IndexPage: React.FC<PageProps> = () => {
                 zIndex: 2,
               }}
             >
-              {content()}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedTab}
+                  initial={{ opacity: 0, y: -100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                  exit={{ opacity: 0, y: 100 }}
+                >
+                  {content()}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         )}
@@ -119,4 +132,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <title>Mike Olie's Portfolio</title>;
