@@ -64,23 +64,23 @@ const Portfolio = (): JSX.Element => {
     projects[0]
   );
 
+  const projectList = projects
+    .filter((project) => selectedProject.id !== project.id)
+    .map((project) => (
+      <motion.li
+        key={project.id}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => setSelectedProject(project)}
+        className="py-2.5 px-5 my-2.5 mx-0 cursor-pointer"
+      >
+        {project.title}
+      </motion.li>
+    ));
+
   return (
-    <div className="flex-col items-center p-5">
-      <ul className="p-0 w-full list-none">
-        {projects
-          .filter((project) => selectedProject.id !== project.id)
-          .map((project) => (
-            <motion.li
-              key={project.id}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedProject(project)}
-              className="py-2.5 px-5 my-2.5 mx-0 cursor-pointer"
-            >
-              {project.title}
-            </motion.li>
-          ))}
-      </ul>
+    <div className="flex-row items-center p-5">
+      <ul className="p-0 w-full list-none">{projectList}</ul>
       <AnimatePresence>
         {selectedProject !== null && (
           <ProjectDetails

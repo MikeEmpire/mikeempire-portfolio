@@ -91,7 +91,7 @@ const IndexPage: React.FC<PageProps> = () => {
               <source src={bgVideo} type="video/mp4" />
             </video>
             <div
-              className="absolute top-5 left-5"
+              className="relative top-5 left-5"
               style={{
                 zIndex: 2,
               }}
@@ -103,10 +103,9 @@ const IndexPage: React.FC<PageProps> = () => {
               <ul>{tabOptions}</ul>
             </div>
             <div
-              className="top-1/2 max-h-full overflow-scroll right-5 absolute"
+              className="top-1/2 max-h-full max-w- overflow-scroll right-5 relative"
               style={{
                 transform: "translateY(-50%)",
-                maxWidth: "400px",
                 zIndex: 2,
               }}
             >
