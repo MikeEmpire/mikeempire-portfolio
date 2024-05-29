@@ -31,7 +31,7 @@ const IndexPage: React.FC<PageProps> = () => {
     if (selectedTab === "contact") {
       return <Contact />;
     }
-    if (selectedTab === "portfolio") {
+    if (selectedTab === "projects") {
       return <Portfolio />;
     }
     return <Home />;
