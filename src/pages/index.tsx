@@ -83,35 +83,28 @@ const IndexPage: React.FC<PageProps> = () => {
               autoPlay
               loop
               muted
+              className="w-full h-full object-cover absolute"
               style={{
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
                 zIndex: 1,
               }}
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
             <div
+              className="absolute top-5 left-5"
               style={{
-                position: "absolute",
-                top: "20px",
-                left: "20px",
                 zIndex: 2,
               }}
             >
               <section className="mb-8">
                 <h1 className="text-3xl">Mike Empire</h1>
-                <h2>Web Developer</h2>
+                <h2 className="text-xl">Software Engineer</h2>
               </section>
               <ul>{tabOptions}</ul>
             </div>
             <div
+              className="top-1/2 max-h-full overflow-scroll right-5 absolute"
               style={{
-                position: "absolute",
-                top: "50%",
-                right: "20px",
                 transform: "translateY(-50%)",
                 maxWidth: "400px",
                 zIndex: 2,

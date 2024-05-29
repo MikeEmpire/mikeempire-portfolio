@@ -14,7 +14,6 @@ function ProjectDetails(project: ProjectProps): JSX.Element {
       transition={{ duration: 0.5 }}
       className="mt-2 p-2.5"
       style={{
-        background: "#f0f0f0",
         borderRadius: "8px",
       }}
     >
