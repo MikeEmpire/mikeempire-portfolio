@@ -90,7 +90,7 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
-            <div className="flex flex-row">
+            <div className="flex flex-row h-screen">
               <div
                 className="relative p-3 w-28"
                 style={{
@@ -104,7 +104,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <ul>{tabOptions}</ul>
               </div>
               <div
-                className="max-h-full relative"
+                className="max-h-full relative w-full pr-8"
                 style={{
                   zIndex: 2,
                 }}
