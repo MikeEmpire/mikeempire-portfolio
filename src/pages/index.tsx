@@ -64,7 +64,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <AnimatePresence>
         {!showContent ? (
           <motion.h1
-            className="text-4xl"
+            className="text-4xl text-center"
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
@@ -90,21 +90,21 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
-            <div className="flex flex-row h-screen">
+            <div className="flex flex-col max-425:flex-col md:h-screen">
               <div
                 className="relative p-3 w-28"
                 style={{
                   zIndex: 2,
                 }}
               >
-                <section className="mb-8">
+                <section className="mb-8 max-425:flex max-425:gap-5 max-425:items-center">
                   <h1 className="text-3xl">Mike Empire</h1>
                   <h2 className="text-xl">Software Engineer</h2>
                 </section>
                 <ul>{tabOptions}</ul>
               </div>
               <div
-                className="max-h-full relative w-full pr-8"
+                className="max-h-full relative w-full pr-8 max-425:p-0"
                 style={{
                   zIndex: 2,
                 }}
