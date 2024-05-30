@@ -2,7 +2,10 @@ import * as React from "react";
 
 const About = (): JSX.Element => {
   return (
-    <p className="" style={{ lineHeight: "24px" }}>
+    <p
+      className="flex justify-center items-center "
+      style={{ lineHeight: "24px" }}
+    >
       Born in 1994, A Los Angeles Native with a love for basketball, family,
       friends, tech and innovation. As a passionate web developer with a keen
       eye for detail and a robust background in business and graphic design, I

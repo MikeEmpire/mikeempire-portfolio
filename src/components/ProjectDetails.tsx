@@ -12,17 +12,15 @@ function ProjectDetails(project: ProjectProps): JSX.Element {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
-      className="mt-2 p-2.5"
-      style={{
-        borderRadius: "8px",
-      }}
+      className="mt-2 p-2.5  overflow-scroll"
+      style={{ height: "90vh" }}
     >
-      <h3>{project.title}</h3>
+      <h3 className="text-3xl">{project.title}</h3>
       <p>{project.description}</p>
-      <h4>Technologies Used:</h4>
-      <ul>
+      <h4 className="text-xl">Technologies Used:</h4>
+      <ul className="flex flex-row gap-4">
         {project.technologies.map((tech) => (
-          <li key={tech}>{tech}</li>
+          <li className="text-md italic text-stone-50" key={tech}>{tech}</li>
         ))}
       </ul>
       {project.media.endsWith(".mp4") ? (

@@ -74,10 +74,10 @@ const IndexPage: React.FC<PageProps> = () => {
           </motion.h1>
         ) : (
           <motion.div
+            className="relative w-full h-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1.5 }}
-            style={{ position: "absolute", width: "100%", height: "100%" }}
           >
             <video
               autoPlay
@@ -90,36 +90,37 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
-            <div
-              className="relative top-5 left-5"
-              style={{
-                zIndex: 2,
-              }}
-            >
-              <section className="mb-8">
-                <h1 className="text-3xl">Mike Empire</h1>
-                <h2 className="text-xl">Software Engineer</h2>
-              </section>
-              <ul>{tabOptions}</ul>
-            </div>
-            <div
-              className="top-1/2 max-h-full max-w- overflow-scroll right-5 relative"
-              style={{
-                transform: "translateY(-50%)",
-                zIndex: 2,
-              }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedTab}
-                  initial={{ opacity: 0, y: -100 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
-                  exit={{ opacity: 0, y: 100 }}
-                >
-                  {content()}
-                </motion.div>
-              </AnimatePresence>
+            <div className="flex flex-row">
+              <div
+                className="relative p-3 w-28"
+                style={{
+                  zIndex: 2,
+                }}
+              >
+                <section className="mb-8">
+                  <h1 className="text-3xl">Mike Empire</h1>
+                  <h2 className="text-xl">Software Engineer</h2>
+                </section>
+                <ul>{tabOptions}</ul>
+              </div>
+              <div
+                className="max-h-full relative"
+                style={{
+                  zIndex: 2,
+                }}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedTab}
+                    initial={{ opacity: 0, y: -100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    exit={{ opacity: 0, y: 100 }}
+                  >
+                    {content()}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </motion.div>
         )}
