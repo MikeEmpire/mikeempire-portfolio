@@ -12,7 +12,7 @@ function ProjectDetails(project: ProjectProps): JSX.Element {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
-      className="mt-2 p-2.5  overflow-scroll"
+      className="mt-2 p-2.5 overflow-scroll"
       style={{ height: "90vh" }}
     >
       <h3 className="text-3xl">{project.title}</h3>

@@ -90,7 +90,7 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
-            <div className="flex flex-row max-425:flex-col md:h-screen">
+            <div className="flex flex-row max-425:flex-col md:h-screen max-425:h-screen">
               <div
                 className="relative p-3 w-28"
                 style={{
