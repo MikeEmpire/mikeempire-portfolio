@@ -116,7 +116,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
                     exit={{ opacity: 0, y: 100 }}
-                    className="flex items-center h-full justify-end max-425:justify-center max-425:gap-6"
+                    className="flex items-center h-full justify-end max-425:justify-center max-425:gap-6 max-425:w-screen"
                   >
                     {content()}
                   </motion.div>
