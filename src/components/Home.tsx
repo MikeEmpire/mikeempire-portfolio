@@ -1,9 +1,9 @@
 import * as React from "react";
 
-const About = (): JSX.Element => {
+const Home = (): JSX.Element => {
   return (
     <p
-      className="flex justify-center items-center "
+      className="flex justify-center items-center w-1/2"
       style={{ lineHeight: "24px" }}
     >
       Born in 1994, A Los Angeles Native with a love for basketball, family,
@@ -21,4 +21,4 @@ const About = (): JSX.Element => {
   );
 };
 
-export default About;
+export default Home;
