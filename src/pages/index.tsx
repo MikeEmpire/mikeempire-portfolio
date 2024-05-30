@@ -90,7 +90,7 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
-            <div className="flex flex-col max-425:flex-col md:h-screen">
+            <div className="flex flex-row max-425:flex-col md:h-screen">
               <div
                 className="relative p-3 w-28"
                 style={{
@@ -116,7 +116,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
                     exit={{ opacity: 0, y: 100 }}
-                    className="flex items-center h-full justify-end"
+                    className="flex items-center h-full justify-end max-425:justify-center max-425:gap-6"
                   >
                     {content()}
                   </motion.div>
