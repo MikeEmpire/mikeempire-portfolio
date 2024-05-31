@@ -91,21 +91,21 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               <source src={bgVideo} type="video/mp4" />
             </video>
-            <div className="flex flex-row max-425:flex-col md:h-screen max-425:h-screen">
+            <div className="flex flex-row max-600:flex-col md:h-screen max-600:h-screen">
               <div
                 className="relative p-3 w-28"
                 style={{
                   zIndex: 2,
                 }}
               >
-                <section className="mb-8 max-425:flex max-425:gap-5 max-425:items-center">
+                <section className="mb-8 max-600:flex max-600:gap-5 max-600:items-center">
                   <h1 className="text-3xl">Mike Empire</h1>
                   <h2 className="text-xl">Software Engineer</h2>
                 </section>
                 <ul>{tabOptions}</ul>
               </div>
               <div
-                className="max-h-full relative w-full pr-8 max-425:p-0"
+                className="max-h-full relative w-full pr-8 max-600:p-0"
                 style={{
                   zIndex: 2,
                 }}
@@ -117,7 +117,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
                     exit={{ opacity: 0, y: 100 }}
-                    className="flex items-center h-full justify-end max-425:justify-center max-425:gap-6 max-425:w-screen"
+                    className="flex items-center h-full justify-end max-600:justify-center max-600:gap-6 max-600:w-screen"
                   >
                     {content()}
                   </motion.div>
