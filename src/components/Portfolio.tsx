@@ -5,10 +5,10 @@ import ProjectDetails from "./ProjectDetails";
 
 import { Project } from "../@types";
 
-import grolensVideo from "./Grolens X THC Design.mp4";
-import sublimeWithRome from "./sublimewithrome.png";
-import rctvx from "./rctvx.png";
-import ptrainsbbq from "./ptrainsbbq.png";
+import grolensVideo from "/Grolens X THC Design.mp4";
+import sublimeWithRome from "/sublimewithrome.png";
+import rctvx from "/rctvx.png";
+import ptrainsbbq from "/ptrainsbbq.png";
 
 const projects: Project[] = [
   {
@@ -101,7 +101,9 @@ const Portfolio = (): JSX.Element => {
 
   return (
     <div className="flex flex-row-reverse items-center p-5 max-425:h-96 max-425:flex-col">
-      <ul className="p-0 list-none w-16 mr-4 max-425:flex-row max-425:flex max-425:m-0 max-425:w-full">{projectList}</ul>
+      <ul className="p-0 list-none w-16 mr-4 max-425:flex-row max-425:flex max-425:m-0 max-425:w-full">
+        {projectList}
+      </ul>
       <AnimatePresence>
         {selectedProject !== null && (
           <ProjectDetails
