@@ -10,6 +10,7 @@ import Portfolio from "../components/Portfolio";
 import capitalize from "../helpers/capitalize";
 
 import "../styles/index.css";
+import Layout from "../components/Layout";
 
 const pageStyles = {
   color: "#fff",
@@ -60,74 +61,77 @@ const IndexPage: React.FC<PageProps> = () => {
   });
 
   return (
-    <main style={pageStyles}>
-      <AnimatePresence>
-        {!showContent ? (
-          <motion.h1
-            className="text-4xl text-center"
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 100 }}
-            transition={{ duration: 1.5 }}
-          >
-            Welcome To Mike Empire's Portfolio
-          </motion.h1>
-        ) : (
-          <motion.div
-            className="relative w-full h-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1.5 }}
-          >
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover absolute"
-              style={{
-                zIndex: 1,
-              }}
+    <Layout>
+      <main style={pageStyles}>
+        <AnimatePresence>
+          {!showContent ? (
+            <motion.h1
+              className="text-4xl text-center"
+              initial={{ opacity: 0, y: -100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+              transition={{ duration: 1.5 }}
             >
-              <source src={bgVideo} type="video/mp4" />
-            </video>
-            <div className="flex flex-row max-600:flex-col md:h-screen max-600:h-screen">
-              <div
-                className="relative p-3 w-28"
+              Welcome To Mike Empire's Portfolio
+            </motion.h1>
+          ) : (
+            <motion.div
+              className="relative w-full h-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5, duration: 1.5 }}
+            >
+              <video
+                autoPlay
+                controls={false}
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover absolute"
                 style={{
-                  zIndex: 2,
+                  zIndex: 1,
                 }}
               >
-                <section className="mb-8 max-600:flex max-600:gap-5 max-600:items-center">
-                  <h1 className="text-3xl">Mike Empire</h1>
-                  <h2 className="text-xl">Software Engineer</h2>
-                </section>
-                <ul>{tabOptions}</ul>
+                <source src={bgVideo} type="video/mp4" />
+              </video>
+              <div className="flex flex-row max-600:flex-col md:h-screen max-600:h-screen">
+                <div
+                  className="relative p-3 w-28"
+                  style={{
+                    zIndex: 2,
+                  }}
+                >
+                  <section className="mb-8 max-600:flex max-600:gap-5 max-600:items-center">
+                    <h1 className="text-3xl">Mike Empire</h1>
+                    <h2 className="text-xl">Software Engineer</h2>
+                  </section>
+                  <ul>{tabOptions}</ul>
+                </div>
+                <div
+                  className="max-h-full relative w-full pr-8 max-600:p-0"
+                  style={{
+                    zIndex: 2,
+                  }}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={selectedTab}
+                      initial={{ opacity: 0, y: -100 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.8 }}
+                      exit={{ opacity: 0, y: 100 }}
+                      className="flex items-center h-full justify-end max-600:justify-center max-600:gap-6 max-600:w-screen"
+                    >
+                      {content()}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
-              <div
-                className="max-h-full relative w-full pr-8 max-600:p-0"
-                style={{
-                  zIndex: 2,
-                }}
-              >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={selectedTab}
-                    initial={{ opacity: 0, y: -100 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.8 }}
-                    exit={{ opacity: 0, y: 100 }}
-                    className="flex items-center h-full justify-end max-600:justify-center max-600:gap-6 max-600:w-screen"
-                  >
-                    {content()}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </main>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </main>
+    </Layout>
   );
 };
 
