@@ -1,14 +1,13 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { HeadFC, PageProps } from "gatsby";
+import { withPrefix } from "gatsby";
 
 import Home from "../components/Home";
 import Contact from "../components/Contact";
 import Portfolio from "../components/Portfolio";
 
 import capitalize from "../helpers/capitalize";
-
-import bgVideo from "../../static/Blur.mp4";
 
 import "../styles/index.css";
 
@@ -27,6 +26,7 @@ const pageStyles = {
 const IndexPage: React.FC<PageProps> = () => {
   const [showContent, setShowContent] = React.useState(false);
   const [selectedTab, setTab] = React.useState<string>("home");
+  const bgVideo = withPrefix("/Blur.mp4");
   const content = (): JSX.Element => {
     if (selectedTab === "contact") {
       return <Contact />;
