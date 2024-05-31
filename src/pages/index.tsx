@@ -5,12 +5,12 @@ import { withPrefix } from "gatsby";
 
 import Home from "../components/Home";
 import Contact from "../components/Contact";
+import Layout from "../components/Layout";
 import Portfolio from "../components/Portfolio";
 
 import capitalize from "../helpers/capitalize";
 
 import "../styles/index.css";
-import Layout from "../components/Layout";
 
 const pageStyles = {
   color: "#fff",
@@ -28,6 +28,8 @@ const IndexPage: React.FC<PageProps> = () => {
   const [showContent, setShowContent] = React.useState(false);
   const [selectedTab, setTab] = React.useState<string>("home");
   const bgVideo = withPrefix("/Blur.mp4");
+  const bgImg = withPrefix("/bgvideo.jpg");
+  const bgGif = withPrefix("/portfoliobg.gif");
   const content = (): JSX.Element => {
     if (selectedTab === "contact") {
       return <Contact />;
@@ -81,19 +83,28 @@ const IndexPage: React.FC<PageProps> = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 1.5 }}
             >
-              <video
-                autoPlay
-                controls={false}
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover absolute"
-                style={{
-                  zIndex: 1,
-                }}
-              >
-                <source src={bgVideo} type="video/mp4" />
-              </video>
+              <picture>
+                <source srcSet={bgImg} media="(max-width: 768px)" />
+                <img
+                  src={bgGif}
+                  alt="Background"
+                  className="w-full h-full object-cover absolute"
+                  style={{ zIndex: 1 }}
+                />
+                <video
+                  autoPlay
+                  controls={false}
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover absolute"
+                  style={{
+                    zIndex: 1,
+                  }}
+                >
+                  <source src={bgVideo} type="video/mp4" />
+                </video>
+              </picture>
               <div className="flex flex-row max-600:flex-col md:h-screen max-600:h-screen">
                 <div
                   className="relative p-3 w-28"
