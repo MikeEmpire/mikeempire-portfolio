@@ -8,7 +8,7 @@ import Portfolio from "../components/Portfolio";
 
 import capitalize from "../helpers/capitalize";
 
-import bgVideo from "../../static/Blur.mp4";
+import bgVideo from "./Blur.mp4";
 
 import "../styles/index.css";
 
