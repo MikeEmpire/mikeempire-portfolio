@@ -7,7 +7,7 @@ import ProjectDetails from "./ProjectDetails";
 import { Project } from "../@types";
 
 const Portfolio = (): JSX.Element => {
-  const grolensVideo = withPrefix("/Grolens-X-THC-Design.mp4");
+  const grolensVideo = withPrefix("/Grolens-x-THC-Design.mp4");
   const sublimeWithRome = withPrefix("/sublimewithrome.png");
   const rctvx = withPrefix("/rctvx.png");
   const ptrainsbbq = withPrefix("/ptrainsbbq.png");
