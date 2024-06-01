@@ -27,7 +27,6 @@ const pageStyles = {
 const IndexPage: React.FC<PageProps> = () => {
   const [showContent, setShowContent] = React.useState(false);
   const [selectedTab, setTab] = React.useState<string>("home");
-  const bgVideo = withPrefix("/Blur.mp4");
   const bgImg = withPrefix("/bgvideo.jpg");
   const bgGif = withPrefix("/portfoliobg.gif");
   const content = (): JSX.Element => {
@@ -91,19 +90,6 @@ const IndexPage: React.FC<PageProps> = () => {
                   className="w-full h-full object-cover absolute"
                   style={{ zIndex: 1 }}
                 />
-                <video
-                  autoPlay
-                  controls={false}
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover absolute"
-                  style={{
-                    zIndex: 1,
-                  }}
-                >
-                  <source src={bgVideo} type="video/mp4" />
-                </video>
               </picture>
               <div className="flex flex-row max-600:flex-col md:h-screen max-600:h-screen">
                 <div
