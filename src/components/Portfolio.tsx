@@ -11,6 +11,7 @@ const Portfolio = (): JSX.Element => {
   const sublimeWithRome = withPrefix("/sublimewithrome.png");
   const rctvx = withPrefix("/rctvx.png");
   const ptrainsbbq = withPrefix("/ptrainsbbq.png");
+  const goodrHomepage = withPrefix("/goodr-homepage.png");
   const projects: Project[] = [
     {
       id: 0,
@@ -50,7 +51,7 @@ const Portfolio = (): JSX.Element => {
       id: 2,
       projectLink: "https://ptrainsbbq.com",
       description: "Official Website for P Trains Barbecue ",
-      title: "Ptrains BBQ",
+      title: "PTrain's BBQ",
       technologies: [
         "NextJS",
         "Gatsby",
@@ -72,6 +73,14 @@ const Portfolio = (): JSX.Element => {
       technologies: ["Squarespace", "React"],
       media: sublimeWithRome,
     },
+    {
+      projectLink: "https://goodr.co",
+      id: 4,
+      description: "Official Website for Goodr",
+      title: "Goodr",
+      technologies: ["Angular", "Laravel", "PostgreSQL"],
+      media: goodrHomepage,
+    },
   ];
   const [selectedProject, setSelectedProject] = React.useState<Project>(
     projects[0]
@@ -91,7 +100,7 @@ const Portfolio = (): JSX.Element => {
           }
           return setSelectedProject(project);
         }}
-        className={`py-2.5 px-5 my-2.5 mx-0 cursor-pointer ${className}`}
+        className={`py-2.5 px-5 my-2.5 mx-0 cursor-pointer max-600:basis-1/5 max-600:py-1 max-600:px-2 max:600:my-1 ${className}`}
       >
         {project.title}
       </motion.li>
@@ -99,8 +108,8 @@ const Portfolio = (): JSX.Element => {
   });
 
   return (
-    <div className="flex flex-row-reverse items-center p-5 max-600:h-96 max-600:flex-col">
-      <ul className="p-0 list-none w-16 mr-4 max-600:flex-row max-600:flex max-600:m-0 max-600:w-full">
+    <div className="flex flex-row-reverse items-center p-5 max-600:30rem max-600:flex-col">
+      <ul className="p-0 list-none w-16 mr-4 flex-wrap max-600:flex-row max-600:flex max-600:m-0 max-600:w-full">
         {projectList}
       </ul>
       <AnimatePresence>

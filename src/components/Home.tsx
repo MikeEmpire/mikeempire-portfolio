@@ -3,7 +3,7 @@ import * as React from "react";
 const Home = (): JSX.Element => {
   return (
     <p
-      className="flex justify-center items-center w-1/2 max-600:w-full max-600:text-center max-600:items-center"
+      className="flex justify-center max-600:p-3 items-center w-1/2 max-600:w-full max-600:text-center max-600:items-center"
       style={{ lineHeight: "24px" }}
     >
       Born in 1994, A Los Angeles Native with a love for basketball, family,

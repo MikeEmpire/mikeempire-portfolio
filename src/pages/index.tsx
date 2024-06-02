@@ -27,7 +27,6 @@ const pageStyles = {
 const IndexPage: React.FC<PageProps> = () => {
   const [showContent, setShowContent] = React.useState(false);
   const [selectedTab, setTab] = React.useState<string>("home");
-  const bgImg = withPrefix("/bgvideo.jpg");
   const bgGif = withPrefix("/portfoliobg.gif");
   const content = (): JSX.Element => {
     if (selectedTab === "contact") {
@@ -83,7 +82,6 @@ const IndexPage: React.FC<PageProps> = () => {
               transition={{ delay: 1.5, duration: 1.5 }}
             >
               <picture>
-                <source srcSet={bgImg} media="(max-width: 768px)" />
                 <img
                   src={bgGif}
                   alt="Background"
