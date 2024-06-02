@@ -1,6 +1,8 @@
 import * as React from "react";
+import { withPrefix } from "gatsby";
 
 const Contact = (): JSX.Element => {
+  const resumePDF = withPrefix("/resume-mikeolie-2.pdf")
   return (
     <section className="flex justify-center items-center">
       <ul className="text-4xl">
@@ -17,7 +19,18 @@ const Contact = (): JSX.Element => {
             Github
           </a>
         </li>
-        <li className="mb-2 cursor-pointer max-600:mb-6">Email</li>
+        <li className="mb-2 cursor-pointer max-600:mb-6">
+          <a href="mailto:aolie94@gmail.com">Email</a>
+        </li>
+        <li className="mb-2 cursor-pointer max-600:mb-6">
+          <a
+            target="_blank"
+            href={resumePDF}
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+        </li>
       </ul>
     </section>
   );
