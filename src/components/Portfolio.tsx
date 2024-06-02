@@ -108,13 +108,14 @@ const Portfolio = (): JSX.Element => {
   });
 
   return (
-    <div className="flex flex-row-reverse items-center p-5 max-600:30rem max-600:flex-col">
+    <div className="flex flex-row-reverse items-center p-5 max-600:h-30rem max-600:flex-col">
       <ul className="p-0 list-none w-16 mr-4 flex-wrap max-600:flex-row max-600:flex max-600:m-0 max-600:w-full">
         {projectList}
       </ul>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {selectedProject !== null && (
           <ProjectDetails
+            key={selectedProject.id}
             projectLink={selectedProject.projectLink}
             id={selectedProject.id}
             title={selectedProject.title}
